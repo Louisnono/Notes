@@ -1,0 +1,145 @@
+% !TEX program = xelatex
+\documentclass[11pt,a4paper]{ctexart}
+\usepackage[margin=18mm]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,booktabs,array,multicol,tikz,xcolor,enumitem,fancyhdr}
+\usetikzlibrary{arrows.meta,positioning}
+\IfFontExistsTF{Noto Serif CJK JP}{\setCJKmainfont{Noto Serif CJK JP}\setCJKsansfont{Noto Sans CJK JP}}{}
+\definecolor{JapanBlue}{RGB}{0,82,155}\definecolor{ChinaRed}{RGB}{196,30,58}\definecolor{SoftBlue}{RGB}{231,241,249}\definecolor{SoftRed}{RGB}{252,235,239}\definecolor{ChemGreen}{RGB}{29,132,96}
+\pagestyle{fancy}\fancyhf{}\lhead{EJU 化学1}\rhead{Homework}\cfoot{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{3pt}
+\newcommand{\vocab}[2]{\textcolor{JapanBlue}{\textbf{#1}}\,\textcolor{gray}{\footnotesize（#2）}}
+\newcommand{\blank}[1]{\rule{#1}{0.4pt}}
+\newcommand{\score}[1]{\hfill\textcolor{gray}{[#1点]}}
+% 学生用PDFでは解答を非表示にする。
+% 教師用を作る場合は \showanswerstrue に変更する。
+\newif\ifshowanswers
+\showanswersfalse
+\newenvironment{qbox}{\begin{list}{}{\setlength{\leftmargin}{0pt}}\item\begin{minipage}{\linewidth}}{\end{minipage}\end{list}\vspace{3mm}}
+\title{\color{JapanBlue}\bfseries 化学1・課題}
+\author{物質の分類／分離と精製／元素／三態／原子・同位体}
+\date{氏名：\blank{45mm}\qquad 提出日：\blank{28mm}}
+
+\begin{document}
+\maketitle
+\begin{center}\colorbox{SoftBlue}{\parbox{.9\linewidth}{\textbf{说明：}请先独立完成全部题目；计算题须写出完整过程，实验题须说明所利用的性质或操作理由。}}\end{center}
+
+\section*{重要語彙}
+\small
+\begin{multicols}{2}
+\vocab{純物質}{じゅんぶっしつ：纯物质}\par
+\vocab{混合物}{こんごうぶつ：混合物}\par
+\vocab{単体}{たんたい：单质}\par
+\vocab{化合物}{かごうぶつ：化合物}\par
+\vocab{分離}{ぶんり：分离}\par
+\vocab{精製}{せいせい：提纯}\par
+\vocab{ろ過}{ろか：过滤}\par
+\vocab{蒸留}{じょうりゅう：蒸馏}\par
+\vocab{再結晶}{さいけっしょう：重结晶}\par
+\vocab{抽出}{ちゅうしゅつ：萃取}\par
+\vocab{昇華}{しょうか：升华}\par
+\vocab{析出}{せきしゅつ：析出}\par
+\vocab{沸騰石}{ふっとうせき：沸石}\par
+\vocab{冷却水}{れいきゃくすい：冷却水}\par
+\vocab{同素体}{どうそたい：同素异形体}\par
+\vocab{同位体}{どういたい：同位素}\par
+\vocab{存在比}{そんざいひ：丰度}\par
+\vocab{放射性}{ほうしゃせい：放射性}\par
+\vocab{半減期}{はんげんき：半衰期}\par
+\vocab{不適当}{ふてきとう：不恰当}\par
+\end{multicols}
+
+\section{物質の分類}
+\begin{qbox}\textbf{問1}\quad 次の物質を\vocab{純物質}{じゅんぶっしつ}と\vocab{混合物}{こんごうぶつ}に分類せよ。\score{6}\\
+銅、塩酸、エタノール、食塩水、原油、酸素\\[2mm]
+純物質：\blank{95mm}\\[2mm]混合物：\blank{95mm}\end{qbox}
+
+\begin{qbox}\textbf{問2}\quad 次の純物質を\vocab{単体}{たんたい}と\vocab{化合物}{かごうぶつ}に分類せよ。\score{6}\\
+水素、二酸化炭素、硫黄、アンモニア、水、鉄\\[2mm]
+単体：\blank{95mm}\\[2mm]化合物：\blank{95mm}\end{qbox}
+
+\begin{qbox}\textbf{問3}\quad 次の文中の「酸素」は、元素を表すか、単体を表すか。\score{4}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]\item 空気中には約21\%の酸素が含まれる。\item 水は水素と酸素からできている。\end{enumerate}
+答：(1)\blank{30mm}\quad (2)\blank{30mm}\end{qbox}
+
+\section{分離と精製}
+\begin{qbox}\textbf{問4　ろ過}\quad 砂、塩化ナトリウム、水の混合物をろ過した。\score{6}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]\item \vocab{残留物}{ざんりゅうぶつ}は何か。\item \vocab{ろ液}{ろえき}には何が含まれるか。\item ガラス棒を使う理由を一つ答えよ。\end{enumerate}
+答：\blank{150mm}\\[3mm]\blank{150mm}\end{qbox}
+
+\begin{qbox}\textbf{問5　蒸留}\quad 食塩水を蒸留する装置について答えよ。\score{8}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]\item 受器に集まる主成分は何か。\item 冷却器の水は上端・下端のどちらから入れるか。\item 加熱前に\vocab{沸騰石}{ふっとうせき}を入れる目的は何か。\end{enumerate}
+答：\blank{150mm}\\[3mm]\blank{150mm}\end{qbox}
+
+\begin{qbox}\textbf{問6　再結晶}\quad 80\,$^\circ$Cで水100 gに硝酸カリウム100 gを溶かし、20\,$^\circ$Cまで冷却した。20\,$^\circ$Cでの溶解度は32 g/100 g水である。析出する結晶は何gか。\score{6}\\[3mm]
+計算：\blank{130mm}\\[6mm]答：\blank{40mm} g\end{qbox}
+
+\begin{qbox}\textbf{問7　抽出}\quad ヨウ素水にヘキサンを加えて振り、静置すると二層に分かれ、ヨウ素は主にヘキサン層へ移った。\score{6}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]\item この操作名を答えよ。\item どの物理的性質の差を利用したか。\item 二層の上下は何で決まるか。\end{enumerate}
+答：\blank{150mm}\\[3mm]\blank{150mm}\end{qbox}
+
+\begin{qbox}\textbf{問8　クロマトグラフィー}\quad 黒インクを紙クロマトグラフィーで展開したところ、赤・青・黄の三つの斑点に分かれた。何が分かるか。また、溶媒前線が8.0 cm、青色色素が6.0 cm移動したときの$R_f$値を求めよ。\score{6}\\[3mm]
+答：\blank{120mm}\quad $R_f=$\blank{18mm}\end{qbox}
+
+\begin{qbox}\textbf{問9　昇華}\quad ヨウ素と砂の混合物を穏やかに加熱し、上部を冷やした。\score{6}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]\item 上部に付着する物質は何か。\item この分離法を答えよ。\item 砂が分離できる理由を答えよ。\end{enumerate}
+答：\blank{150mm}\\[3mm]\blank{150mm}\end{qbox}
+
+\section{元素・同素体・元素の確認}
+\begin{qbox}\textbf{問10　同素体}\quad 次の組合せのうち、同素体であるものをすべて選べ。\score{6}\\
+ア O$_2$とO$_3$　イ H$_2$OとH$_2$O$_2$　ウ ダイヤモンドと黒鉛　エ ${}^{12}$Cと${}^{14}$C　オ 黄リンと赤リン\\[2mm]
+答：\blank{50mm}\end{qbox}
+
+\begin{qbox}\textbf{問11　炭素}\quad ダイヤモンド、黒鉛、フラーレン、カーボンナノチューブについて答えよ。\score{8}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]\item 電気を通しやすいものを一つ答え、その構造上の理由を述べよ。\item C$_{60}$が五角形と六角形からなる閉じたかご状構造をもつ物質名を答えよ。\item 黒鉛のシートを筒状にした構造をもつ物質名を答えよ。\end{enumerate}
+答：\blank{150mm}\\[3mm]\blank{150mm}\end{qbox}
+
+\begin{qbox}\textbf{問12　元素の確認}\quad 次の観察から元素を答えよ。\score{6}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]\item 炎色反応が黄色。\item 燃焼気体を石灰水に通すと白く濁る。\item 塩化物イオンを含む溶液に硝酸銀水溶液を加えると白色沈殿。\end{enumerate}
+答：(1)\blank{25mm}\ (2)\blank{25mm}\ (3)\blank{25mm}\end{qbox}
+
+\section{三態・原子・同位体}
+\begin{qbox}\textbf{問13　三態変化}\quad 次の変化の名称を答えよ。\score{6}\\
+(1) 固体$\to$液体　(2) 液体$\to$気体　(3) 気体$\to$固体\\[2mm]
+答：(1)\blank{25mm}\ (2)\blank{25mm}\ (3)\blank{25mm}\end{qbox}
+
+\begin{qbox}\textbf{問14　熱運動}\quad 正しいものを二つ選べ。\score{6}
+\begin{enumerate}[label=\Alph*.,leftmargin=9mm]\item 粒子の熱運動は絶対零度付近で最も激しい。\item 温度が高いほど粒子の平均運動エネルギーは大きい。\item 気体の粒子は容器全体に広がる。\item 固体の粒子は完全に静止している。\end{enumerate}
+答：\blank{35mm}\end{qbox}
+
+\begin{qbox}\textbf{問15　原子の構成}\quad ${}^{23}_{11}\mathrm{Na}$ と ${}^{14}_{6}\mathrm{C}$ について、陽子数・中性子数・電子数を求めよ（いずれも中性原子）。\score{8}\\[2mm]
+${}^{23}$Na：陽子\blank{12mm} 中性子\blank{12mm} 電子\blank{12mm}\\[2mm]
+${}^{14}$C：陽子\blank{12mm} 中性子\blank{12mm} 電子\blank{12mm}\end{qbox}
+
+\begin{qbox}\textbf{問16　存在比}\quad ${}^{35}$Clが75\%、${}^{37}$Clが25\%存在するとき、塩素の相対原子質量を求めよ。\score{6}\\[3mm]
+計算：\blank{130mm}\quad 答：\blank{24mm}\end{qbox}
+
+\begin{qbox}\textbf{問17　炭素14}\quad 木片中の${}^{14}$Cが現生木材の12.5\%であった。半減期を5730年とする。\score{10}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]\item 何回の半減期が経過したか。\item 木片は約何年前のものか。\item ${}^{14}$Cの$\beta^-$崩壊後に生じる元素を答えよ。\end{enumerate}
+答：\blank{150mm}\\[3mm]\blank{150mm}\end{qbox}
+
+\ifshowanswers
+\clearpage
+\section*{解答・自己採点}
+\small
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=14mm]
+\item 純物質：銅、エタノール、酸素。混合物：塩酸、食塩水、原油。
+\item 単体：水素、硫黄、鉄。化合物：二酸化炭素、アンモニア、水。
+\item (1)単体　(2)元素。
+\item (1)砂　(2)塩化ナトリウムと水　(3)液体を静かに導き、飛散を防ぐ。
+\item (1)水　(2)下端　(3)突沸を防ぐ。
+\item $100-32=68$ g。
+\item (1)抽出　(2)溶媒に対する溶解度の差　(3)密度。
+\item 黒インクは少なくとも三種の色素を含む。$R_f=6.0/8.0=0.75$。
+\item (1)ヨウ素　(2)昇華法　(3)ヨウ素は昇華するが砂は昇華しない。
+\item ア、ウ、オ。
+\item (1)黒鉛。動ける電子があるため。(2)フラーレン。(3)カーボンナノチューブ。
+\item (1)ナトリウム　(2)炭素　(3)塩素。
+\item (1)融解　(2)蒸発または沸騰　(3)昇華。
+\item B、C。
+\item ${}^{23}$Na：11, 12, 11。${}^{14}$C：6, 8, 6。
+\item $35\times0.75+37\times0.25=35.5$。
+\item (1)3回　(2)$3\times5730=17190$年前　(3)窒素。
+\end{enumerate}
+\fi
+
+\end{document}
