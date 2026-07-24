@@ -1,0 +1,362 @@
+% !TEX program = xelatex
+\documentclass[11pt,a4paper]{ctexart}
+\usepackage[margin=18mm]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,booktabs,array,tabularx,multicol,tikz,xcolor,enumitem,fancyhdr}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\IfFontExistsTF{Noto Serif CJK JP}{
+  \setCJKmainfont{Noto Serif CJK JP}\setCJKsansfont{Noto Sans CJK JP}
+}{
+  \IfFontExistsTF{Microsoft YaHei}{\setCJKmainfont{Microsoft YaHei}\setCJKsansfont{Microsoft YaHei}}{}
+}
+
+\definecolor{JapanBlue}{RGB}{0,82,155}
+\definecolor{ChinaRed}{RGB}{196,30,58}
+\definecolor{SoftBlue}{RGB}{231,241,249}
+\definecolor{SoftRed}{RGB}{252,235,239}
+\definecolor{ChemGreen}{RGB}{29,132,96}
+\definecolor{GraphGray}{RGB}{94,103,112}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{EJU 化学2}
+\rhead{Homework}
+\cfoot{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist[enumerate]{itemsep=2pt,topsep=2pt}
+
+\newcommand{\vocab}[2]{\textcolor{JapanBlue}{\textbf{#1}}\,\textcolor{gray}{\footnotesize（#2）}}
+\newcommand{\blank}[1]{\rule{#1}{0.4pt}}
+\newcommand{\score}[1]{\hfill\textcolor{gray}{[#1点]}}
+\newcommand{\ansspace}[1]{\par\vspace{#1}}
+\newcommand{\choice}[1]{\textbf{#1}}
+\newenvironment{qbox}{\begin{list}{}{\setlength{\leftmargin}{0pt}}\item\begin{minipage}{\linewidth}}{\end{minipage}\end{list}\vspace{3mm}}
+
+% 学生用PDFでは解答を非表示にする。教師用は \showanswerstrue に変更する。
+\newif\ifshowanswers
+\showanswersfalse
+
+\title{\color{JapanBlue}\bfseries 化学2：課題}
+\author{電子配置／周期律・周期表／化学結合／結晶}
+\date{氏名：\blank{45mm}\qquad 提出日：\blank{28mm}}
+
+\begin{document}
+\maketitle
+\begin{center}
+\colorbox{SoftBlue}{\parbox{.91\linewidth}{
+\textbf{说明：}请先独立完成全部题目。结构式、电子式必须画清楚；判断物质性质时，要写出“构成粒子”和“粒子间作用力”。
+}}
+\end{center}
+
+\section*{重要語彙}
+\small
+\begin{multicols}{2}
+\vocab{電子配置}{でんしはいち：电子排布}\par
+\vocab{電子殻}{でんしかく：电子层}\par
+\vocab{最外殻電子}{さいがいかくでんし：最外层电子}\par
+\vocab{価電子}{かでんし：价电子}\par
+\vocab{閉殻}{へいかく：闭壳层}\par
+\vocab{周期律}{しゅうきりつ：元素周期律}\par
+\vocab{周期表}{しゅうきひょう：元素周期表}\par
+\vocab{族}{ぞく：族}\par
+\vocab{周期}{しゅうき：周期}\par
+\vocab{原子半径}{げんしはんけい：原子半径}\par
+\vocab{イオン化エネルギー}{离子化能}\par
+\vocab{電気陰性度}{でんきいんせいど：电负性}\par
+\vocab{陽イオン}{ようイオン：阳离子}\par
+\vocab{陰イオン}{いんイオン：阴离子}\par
+\vocab{イオン結合}{イオンけつごう：离子键}\par
+\vocab{共有結合}{きょうゆうけつごう：共价键}\par
+\vocab{共有電子対}{きょうゆうでんしつい：共用电子对}\par
+\vocab{非共有電子対}{ひきょうゆうでんしつい：孤电子对}\par
+\vocab{分子間力}{ぶんしかんりょく：分子间力}\par
+\vocab{水素結合}{すいそけつごう：氢键}\par
+\vocab{極性}{きょくせい：极性}\par
+\vocab{融点}{ゆうてん：熔点}\par
+\vocab{沸点}{ふってん：沸点}\par
+\vocab{結晶}{けっしょう：晶体}\par
+\end{multicols}
+\normalsize
+
+\section{電子配置とイオン}
+
+\begin{qbox}
+\textbf{問1　電子殻}
+\quad 次の文の空欄を埋めよ。\score{6}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]
+\item 最も内側にある電子殻を\blank{18mm}殻という。
+\item $n$番目の電子殻に収容できる電子の最大数は\blank{20mm}個である。
+\item 電子殻が最大数の電子で満たされた状態を\blank{25mm}という。
+\end{enumerate}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問2　原子の電子配置}
+\quad 次の原子について、K殻・L殻・M殻・N殻の電子数を記せ。\score{8}
+\begin{center}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{c|c|c|c|c}
+\toprule
+原子 & K殻 & L殻 & M殻 & N殻\\ \midrule
+$\mathrm{O}\,(Z=8)$  & & & --- & ---\\
+$\mathrm{Na}\,(Z=11)$& & & & ---\\
+$\mathrm{Cl}\,(Z=17)$& & & & ---\\
+$\mathrm{Ca}\,(Z=20)$& & & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問3　イオンの電子数}
+\quad 次のイオンの電子数を求め、同じ電子配置をもつものをまとめよ。\score{8}
+\[
+\mathrm{Al^{3+}},\quad \mathrm{O^{2-}},\quad \mathrm{F^-},\quad
+\mathrm{Na^+},\quad \mathrm{Mg^{2+}},\quad \mathrm{Cl^-},\quad \mathrm{K^+}
+\]
+電子数：\blank{150mm}\\[3mm]
+同じ電子配置：\blank{135mm}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問4　元素を推定する}
+\quad 中性原子A～Dの電子配置が次のように与えられた。\score{8}
+\begin{center}
+\begin{tabular}{c|c|c|c}
+\toprule
+原子 & K殻 & L殻 & M殻\\ \midrule
+A & 2 & 8 & 1\\
+B & 2 & 8 & 7\\
+C & 2 & 8 & 8\\
+D & 2 & 6 & ---\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]
+\item A～Dの元素記号を答えよ。
+\item 最も陽イオンになりやすいもの、最も陰イオンになりやすいものを選べ。
+\item 化学的に最も安定なものを選び、その理由を答えよ。
+\end{enumerate}
+答：\blank{150mm}\ansspace{5mm}
+\end{qbox}
+
+\section{周期律と周期表}
+
+\begin{qbox}
+\textbf{問5　周期表による分類}
+\quad 次の8元素を、最外殻電子の少ない順に5組に分けよ。\score{8}
+\[
+\mathrm{Al},\ \mathrm{Ba},\ \mathrm{Ca},\ \mathrm{Cl},\ \mathrm{F},\ \mathrm{K},\ \mathrm{Na},\ \mathrm{Ne}
+\]
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]
+\item 各組の元素と最外殻電子数を記せ。
+\item 同じ族に属する組をすべて答えよ。
+\item ハロゲン、アルカリ金属、アルカリ土類金属、貴ガスに該当する元素を答えよ。
+\end{enumerate}
+答：\blank{150mm}\ansspace{8mm}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問6　周期的な変化}
+\quad 第3周期の元素について、一般的な傾向を矢印で示せ。\score{8}
+\begin{center}
+\begin{tikzpicture}[>=Stealth,x=.65cm,y=1cm]
+\draw[->,very thick,JapanBlue] (0,0)--(10.8,0);
+\foreach \x/\e in {0/Na,1.7/Mg,3.4/Al,5.1/Si,6.8/P,8.5/S,10.2/Cl}
+  \node[below] at (\x,0) {\e};
+\node[anchor=east] at (-.2,1.05) {原子半径が大きくなる向き：};
+\draw[<->,thick,GraphGray] (0,1.05)--(10.2,1.05);
+\node[anchor=east] at (-.2,1.75) {第一イオン化エネルギーが大きくなる向き：};
+\draw[<->,thick,GraphGray] (0,1.75)--(10.2,1.75);
+\node[anchor=east] at (-.2,2.45) {電気陰性度が大きくなる向き：};
+\draw[<->,thick,GraphGray] (0,2.45)--(10.2,2.45);
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]
+\item NaとClでは、原子半径が大きいのはどちらか。
+\item NaとClでは、第一イオン化エネルギーが大きいのはどちらか。
+\item 同族元素では、原子番号が大きくなるほど原子半径はどうなるか。
+\end{enumerate}
+答：\blank{145mm}
+\end{qbox}
+
+\section{イオン結合と組成式}
+
+\begin{qbox}
+\textbf{問7　結合の定義}
+\quad 次の説明に対応する語を答えよ。\score{6}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]
+\item 陽イオンと陰イオンが静電気力で引き合ってできる結合。
+\item 2つの原子が不対電子を共有してできる結合。
+\item 金属原子が自由電子を共有してできる結合。
+\end{enumerate}
+答：(1)\blank{27mm}\quad(2)\blank{27mm}\quad(3)\blank{27mm}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問8　イオンから組成式をつくる}
+\quad 電荷の総和が0になるように、組成式と物質名を記せ。\score{10}
+\begin{center}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabularx}{\linewidth}{c|c|X|X}
+\toprule
+ & イオンの組合せ & 組成式 & 物質名\\ \midrule
+(1)& $\mathrm{Na^+}$ と $\mathrm{OH^-}$ &&\\
+(2)& $\mathrm{Mg^{2+}}$ と $\mathrm{Cl^-}$ &&\\
+(3)& $\mathrm{Ca^{2+}}$ と $\mathrm{O^{2-}}$ &&\\
+(4)& $\mathrm{Al^{3+}}$ と $\mathrm{SO_4^{2-}}$ &&\\
+(5)& $\mathrm{NH_4^+}$ と $\mathrm{CO_3^{2-}}$ &&\\
+\bottomrule
+\end{tabularx}
+\end{center}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問9　イオン結晶の性質}
+\quad イオン結晶について答えよ。\score{8}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]
+\item 一般に融点が高く、硬い理由を説明せよ。
+\item 固体では電気を通さないが、融解状態や水溶液では電気を通す理由を説明せよ。
+\item 結晶に強い力を加えると割れやすい理由を、イオンの並び方から説明せよ。
+\end{enumerate}
+答：\blank{150mm}\ansspace{11mm}
+\end{qbox}
+
+\section{共有結合・分子の形と極性}
+
+\begin{qbox}
+\textbf{問10　電子式と構造式}
+\quad 次の分子の電子式と構造式をそれぞれ記せ。\score{12}
+\begin{center}
+\renewcommand{\arraystretch}{2.25}
+\begin{tabularx}{\linewidth}{c|X|X}
+\toprule
+分子 & 電子式 & 構造式\\ \midrule
+$\mathrm{H_2}$ &&\\
+$\mathrm{Cl_2}$ &&\\
+$\mathrm{HCl}$ &&\\
+$\mathrm{H_2O}$ &&\\
+$\mathrm{NH_3}$ &&\\
+$\mathrm{CO_2}$ &&\\
+\bottomrule
+\end{tabularx}
+\end{center}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問11　共有電子対と非共有電子対}
+\quad 1分子中に含まれる共有電子対・非共有電子対の数を答えよ。\score{6}
+\begin{center}
+\begin{tabular}{c|c|c}
+\toprule
+分子 & 共有電子対 & 非共有電子対\\ \midrule
+$\mathrm{H_2O}$ &&\\
+$\mathrm{NH_3}$ &&\\
+$\mathrm{CO_2}$ &&\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問12　分子の形と極性}
+\quad 次の分子の形を選び、極性分子には$\bigcirc$、無極性分子には$\times$を付けよ。\score{10}
+\[
+\text{直線形／折れ線形／三角錐形／正三角形／正四面体形}
+\]
+\begin{center}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{c|c|c@{\qquad}c|c|c}
+\toprule
+分子&形&極性&分子&形&極性\\ \midrule
+$\mathrm{HCl}$&&&$\mathrm{H_2O}$&&\\
+$\mathrm{NH_3}$&&&$\mathrm{CO_2}$&&\\
+$\mathrm{CH_4}$&&&$\mathrm{CCl_4}$&&\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{qbox}
+
+\section{分子間力と結晶}
+
+\begin{qbox}
+\textbf{問13　分子間力と沸点}
+\quad 次の問いに、理由を付けて答えよ。\score{8}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]
+\item $\mathrm{F_2,\ Cl_2,\ Br_2,\ I_2}$を沸点の低い順に並べよ。
+\item $\mathrm{HF,\ HCl,\ HBr,\ HI}$のうち、HFの沸点が特に高い理由を答えよ。
+\item 同程度の分子量をもつ物質では、極性が大きいほど沸点は一般にどうなるか。
+\end{enumerate}
+答：\blank{150mm}\ansspace{7mm}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問14　結晶の分類}
+\quad 次の物質を、イオン結晶・分子結晶・共有結合の結晶・金属結晶に分類せよ。\score{10}
+\[
+\mathrm{KCl},\quad \mathrm{I_2},\quad \mathrm{SiO_2},\quad \mathrm{Cu},\quad
+\text{氷},\quad \text{ダイヤモンド},\quad \mathrm{Al},\quad \text{ドライアイス}
+\]
+\begin{center}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabularx}{\linewidth}{l|X}
+\toprule
+結晶の種類 & 物質\\ \midrule
+イオン結晶 &\\
+分子結晶 &\\
+共有結合の結晶 &\\
+金属結晶 &\\
+\bottomrule
+\end{tabularx}
+\end{center}
+\end{qbox}
+
+\begin{qbox}
+\textbf{問15　性質から結晶を判定する}
+\quad 未知固体A～Dについて、最も適切な結晶の種類を答えよ。\score{12}
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{c|X|X}
+\toprule
+固体 & 観察された性質 & 結晶の種類\\ \midrule
+A & 高融点。固体では不導体だが、融解すると導電する。 &\\
+B & 非常に硬く高融点。固体・融解状態とも基本的に不導体。 &\\
+C & 融点が低く、昇華しやすい。固体は不導体。 &\\
+D & 展性・延性があり、固体でもよく電気を通す。 &\\
+\bottomrule
+\end{tabularx}
+\end{center}
+各判定の根拠：\blank{125mm}\ansspace{9mm}
+\end{qbox}
+
+\begin{center}
+\colorbox{SoftRed}{\parbox{.9\linewidth}{
+\textbf{提出前チェック：}電子数と電荷は一致しているか／組成式の電荷は合計0か／分子の形を考えて極性を判断したか／結晶の構成粒子と粒子間作用を書いたか。
+}}
+\end{center}
+
+\ifshowanswers
+\clearpage
+\section*{解答・自己採点}
+\small
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=14mm]
+\item (1)K (2)$2n^2$ (3)閉殻。
+\item O：2,6。Na：2,8,1。Cl：2,8,7。Ca：2,8,8,2。
+\item Al$^{3+}$ 10、O$^{2-}$ 10、F$^-$ 10、Na$^+$ 10、Mg$^{2+}$ 10、Cl$^-$ 18、K$^+$ 18。
+\item A=Na、B=Cl、C=Ar、D=O。陽イオン：A、陰イオン：B、安定：C（閉殻）。
+\item 1個：K, Na。2個：Ba, Ca。3個：Al。7個：F, Cl。8個：Ne。同族はK/Na、Ba/Ca、F/Cl。分類名は順にアルカリ金属、アルカリ土類金属、ハロゲン、貴ガス。
+\item 原子半径は左向き、第一イオン化エネルギーと電気陰性度は右向きに増大。(1)Na (2)Cl (3)大きくなる。
+\item (1)イオン結合 (2)共有結合 (3)金属結合。
+\item NaOH（水酸化ナトリウム）、MgCl$_2$（塩化マグネシウム）、CaO（酸化カルシウム）、Al$_2$(SO$_4$)$_3$（硫酸アルミニウム）、(NH$_4$)$_2$CO$_3$（炭酸アンモニウム）。
+\item 強い静電気力で格子を作る。固体ではイオンが固定され、融解・溶解すると移動できる。同符号イオンが向き合うずれが生じると反発して割れる。
+\item H--H、Cl--Cl、H--Cl、H--O--H、NH$_3$、O=C=O。電子式では価電子と非共有電子対も記す。
+\item H$_2$O：2,2。NH$_3$：3,1。CO$_2$：4,4。
+\item HCl直線形○、H$_2$O折れ線形○、NH$_3$三角錐形○、CO$_2$直線形×、CH$_4$正四面体形×、CCl$_4$正四面体形×。
+\item (1)F$_2$<Cl$_2$<Br$_2$<I$_2$（分子量・分極率の増大）。(2)水素結合。(3)高くなる。
+\item イオン：KCl。分子：I$_2$、氷、ドライアイス。共有結合：SiO$_2$、ダイヤモンド。金属：Cu、Al。
+\item Aイオン結晶、B共有結合の結晶、C分子結晶、D金属結晶。
+\end{enumerate}
+\fi
+
+\end{document}

@@ -1,0 +1,195 @@
+% !TEX program = xelatex
+\documentclass[11pt,a4paper]{ctexart}
+\usepackage[margin=18mm]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,booktabs,array,tabularx,xcolor,enumitem,fancyhdr}
+\IfFontExistsTF{Noto Serif CJK JP}{
+  \setCJKmainfont{Noto Serif CJK JP}\setCJKsansfont{Noto Sans CJK JP}
+}{
+  \IfFontExistsTF{Microsoft YaHei}{\setCJKmainfont{Microsoft YaHei}\setCJKsansfont{Microsoft YaHei}}{}
+}
+\definecolor{JapanBlue}{RGB}{0,82,155}
+\definecolor{ChinaRed}{RGB}{196,30,58}
+\definecolor{SoftBlue}{RGB}{231,241,249}
+\definecolor{SoftRed}{RGB}{252,235,239}
+\definecolor{ChemGreen}{RGB}{29,132,96}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{EJU 化学2}
+\rhead{Answer Key}
+\cfoot{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[enumerate]{itemsep=2pt,topsep=2pt}
+\newcommand{\qtitle}[2]{\vspace{2mm}\noindent\textcolor{JapanBlue}{\textbf{問#1　#2}}\par}
+\newcommand{\point}[1]{\textcolor{ChinaRed}{\textbf{要点：}}#1}
+
+\title{\color{JapanBlue}\bfseries 化学2：課題解答}
+\author{電子配置／周期律・周期表／化学結合／結晶}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{center}
+\colorbox{SoftBlue}{\parbox{.91\linewidth}{
+\textbf{使用方法：}先完成学生版，再核对答案。判断题和性质题不仅要写结论，还要说明电子、构成粒子或粒子间作用。
+}}
+\end{center}
+
+\section*{1　電子配置とイオン}
+
+\qtitle{1}{電子殻}
+(1) K殻　(2) $2n^2$個　(3) 閉殻（へいかく）。
+
+\qtitle{2}{原子の電子配置}
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{c|c|c|c|c}
+\toprule
+原子 & K殻 & L殻 & M殻 & N殻\\ \midrule
+O  & 2 & 6 & --- & ---\\
+Na & 2 & 8 & 1 & ---\\
+Cl & 2 & 8 & 7 & ---\\
+Ca & 2 & 8 & 8 & 2\\
+\bottomrule
+\end{tabular}
+\end{center}
+\point{中性原子的电子总数等于原子序数。}
+
+\qtitle{3}{イオンの電子数}
+\[
+\begin{array}{c|ccccccc}
+&\mathrm{Al^{3+}}&\mathrm{O^{2-}}&\mathrm{F^-}&\mathrm{Na^+}&\mathrm{Mg^{2+}}&\mathrm{Cl^-}&\mathrm{K^+}\\ \hline
+\text{電子数}&10&10&10&10&10&18&18
+\end{array}
+\]
+同じ電子配置：
+$\{\mathrm{Al^{3+},O^{2-},F^-,Na^+,Mg^{2+}}\}$、
+$\{\mathrm{Cl^-,K^+}\}$。
+
+\qtitle{4}{元素を推定する}
+A=Na、B=Cl、C=Ar、D=O。最も陽イオンになりやすいのはA、最も陰イオンになりやすいのはB。最も安定なのはCで、最外殻が8電子の閉殻になっている。
+
+\section*{2　周期律と周期表}
+
+\qtitle{5}{周期表による分類}
+最外殻電子数1：K、Na。2：Ba、Ca。3：Al。7：Cl、F。8：Ne。
+
+同族：KとNa、BaとCa、ClとF。アルカリ金属：K、Na。アルカリ土類金属：Ba、Ca。ハロゲン：Cl、F。貴ガス：Ne。
+
+\qtitle{6}{周期的な変化}
+第3周期では、原子半径はおおむね\textbf{左向き}に大きくなり、第一イオン化エネルギーと電気陰性度はおおむね\textbf{右向き}に大きくなる。
+
+(1) Na　(2) Cl　(3) 同族では下に行くほど電子殻が増えるため、原子半径は大きくなる。
+
+\section*{3　イオン結合と組成式}
+
+\qtitle{7}{結合の定義}
+(1) イオン結合　(2) 共有結合　(3) 金属結合。
+
+\qtitle{8}{イオンから組成式をつくる}
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{c|c|l}
+\toprule
+ & 組成式 & 物質名\\ \midrule
+(1)& $\mathrm{NaOH}$ & 水酸化ナトリウム\\
+(2)& $\mathrm{MgCl_2}$ & 塩化マグネシウム\\
+(3)& $\mathrm{CaO}$ & 酸化カルシウム\\
+(4)& $\mathrm{Al_2(SO_4)_3}$ & 硫酸アルミニウム\\
+(5)& $\mathrm{(NH_4)_2CO_3}$ & 炭酸アンモニウム\\
+\bottomrule
+\end{tabular}
+\end{center}
+\point{阳离子总电荷与阴离子总电荷的绝对值必须相等。原子团超过一个时要加括号。}
+
+\qtitle{9}{イオン結晶の性質}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]
+\item 陽イオンと陰イオンの間に強い静電気力が働き、三次元的な格子をつくるため、融点が高く硬い。
+\item 固体ではイオンが一定位置に固定されている。融解または水に溶解するとイオンが移動でき、電荷を運ぶため導電する。
+\item 外力で層がずれると同符号のイオンが向き合い、強く反発するため割れる。
+\end{enumerate}
+
+\clearpage
+\section*{4　共有結合・分子の形と極性}
+
+\qtitle{10}{電子式と構造式}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{c|c|l}
+\toprule
+分子 & 構造式 & 電子式で確認する点\\ \midrule
+$\mathrm{H_2}$ & H--H & 共有電子対1\\
+$\mathrm{Cl_2}$ & Cl--Cl & 各Clに非共有電子対3\\
+$\mathrm{HCl}$ & H--Cl & Clに非共有電子対3\\
+$\mathrm{H_2O}$ & H--O--H & Oに非共有電子対2\\
+$\mathrm{NH_3}$ & N--Hが3本 & Nに非共有電子対1\\
+$\mathrm{CO_2}$ & O=C=O & 各Oに非共有電子対2\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\qtitle{11}{共有電子対と非共有電子対}
+H$_2$O：共有2、非共有2。NH$_3$：共有3、非共有1。CO$_2$：共有4、非共有4。
+
+\point{二重結合一条包含两对共用电子，因此CO$_2$共有4对。}
+
+\qtitle{12}{分子の形と極性}
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{c|c|c}
+\toprule
+分子 & 形 & 極性\\ \midrule
+HCl & 直線形 & 極性分子\\
+H$_2$O & 折れ線形 & 極性分子\\
+NH$_3$ & 三角錐形 & 極性分子\\
+CO$_2$ & 直線形 & 無極性分子\\
+CH$_4$ & 正四面体形 & 無極性分子\\
+CCl$_4$ & 正四面体形 & 無極性分子\\
+\bottomrule
+\end{tabular}
+\end{center}
+\point{含有极性键不等于一定是极性分子。结构对称时，键偶极可能相互抵消。}
+
+\section*{5　分子間力と結晶}
+
+\qtitle{13}{分子間力と沸点}
+\begin{enumerate}[label=(\arabic*),leftmargin=9mm]
+\item $\mathrm{F_2<Cl_2<Br_2<I_2}$。分子量与电子云的易变形程度增大，分散力增强。
+\item HF分子间形成强的水素結合，因此沸点明显高于其他ハロゲン化水素。
+\item 同程度の分子量なら、極性が大きいほど分子間力が強くなり、沸点は一般に高くなる。
+\end{enumerate}
+
+\qtitle{14}{結晶の分類}
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{l|l}
+\toprule
+結晶の種類 & 物質\\ \midrule
+イオン結晶 & KCl\\
+分子結晶 & I$_2$、氷、ドライアイス\\
+共有結合の結晶 & SiO$_2$、ダイヤモンド\\
+金属結晶 & Cu、Al\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\qtitle{15}{性質から結晶を判定する}
+\begin{tabularx}{\linewidth}{c|c|X}
+\toprule
+固体 & 結晶の種類 & 根拠\\ \midrule
+A & イオン結晶 & 固体中ではイオンが固定され、融解すると移動できる。\\
+B & 共有結合の結晶 & 原子が共有結合で網目状につながり、非常に硬く高融点。\\
+C & 分子結晶 & 分子間力が比較的弱く、低融点・昇華性を示す。\\
+D & 金属結晶 & 自由電子があり、導電性・展性・延性を示す。\\
+\bottomrule
+\end{tabularx}
+
+\vfill
+\begin{center}
+\colorbox{SoftRed}{\parbox{.9\linewidth}{
+\textbf{核心逻辑：}电子排布决定离子形成与成键倾向；构成粒子和粒子间作用决定晶体的熔点、硬度与导电性。
+}}
+\end{center}
+
+\end{document}

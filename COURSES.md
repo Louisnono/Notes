@@ -9,6 +9,11 @@
 | `02-chem1` | 物质分类、分离精制、元素与同素体、三态、原子与同位素 | `main.pdf` |
 | `03-chem1-homework` | 化学第一课作业（学生版、无答案） | `main.pdf` |
 | `04-physics2` | 匀变速直线运动、图像、竖直抛体与拓展结论 | `main.pdf` |
+| `05-physics3` | 七种重要力、受力图与力的平衡 | `physics3.pdf` |
+| `06-chem2` | 电子排布、周期律、化学键与晶体 | `main.pdf` |
+| `07-chem2-homework` | 化学第二课作业与答案 | `main.pdf` |
+| `08-physics4` | 刚体力矩平衡、牛顿定律、功率与机械能 | `physics4.pdf` |
+| `09-chem3` | 化学键与性质、相对质量、物质的量与三种浓度 | `chem3.pdf` |
 
 ## 本地编译
 
